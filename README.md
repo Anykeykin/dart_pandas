@@ -7,7 +7,7 @@
 ## Key Features
 
 - **DataFrame**: A two-dimensional table with named columns and rows.
-- **Data Reading and Writing**: Support for CSV files.
+- **Data Reading and Writing**: Support for CSV,JSON files.
 - **Filtering and Sorting**: Filter data based on conditions and sort by values or index.
 - **Aggregation and Statistics**: Sum, mean, min, max, standard deviation, variance.
 - **Grouping Data**: Group data by specific columns and apply aggregation functions.
@@ -22,7 +22,7 @@ Add `dart_pandas` to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  dart_pandas: ^1.0.0
+  dart_pandas: ^0.1.1
 ```
 
 Then run:
