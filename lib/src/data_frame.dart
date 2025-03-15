@@ -69,4 +69,9 @@ class DataFrame {
     }
     return total;
   }
+
+  dynamic mean(String column) {
+    final count = data.length;
+    return count == 0 ? 0 : sum(column) / count;
+  }
 }
