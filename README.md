@@ -25,3 +25,59 @@ dependencies:
   dart_pandas: ^1.0.0
 ```
 
+Then run:
+
+```bash
+flutter pub get
+```
+
+## Usage
+
+Creating a DataFrame
+
+```dart
+import 'package:dart_pandas/dart_pandas.dart';
+
+void main() {
+  // Create a DataFrame
+  final df = DataFrame({
+    'name': ['Alice', 'Bob', 'Charlie'],
+    'age': [25, 30, 35],
+    'salary': [50000, 60000, 70000],
+  });
+
+  // Print the DataFrame
+  df.printDataFrame();
+}
+```
+
+Filtering Data
+
+``dart
+final filteredDf = df.filter((row) => row['age'] > 30);
+filteredDf.printDataFrame();
+```
+
+Sorting Data
+
+```dart
+final sortedDf = df.sort('salary', ascending: false);
+sortedDf.printDataFrame();
+```
+
+Aggregating Data
+
+```dart
+final averageSalary = df.mean('salary');
+print('Average Salary: $averageSalary');
+```
+
+Grouping Data
+
+```dart
+final groupedDf = df.groupBy('department');
+groupedDf.forEach((key, value) {
+  print('Department: $key');
+  value.printDataFrame();
+});
+```
