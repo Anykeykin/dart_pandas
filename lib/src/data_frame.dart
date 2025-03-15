@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:csv/csv.dart';
 
@@ -112,5 +113,14 @@ class DataFrame {
 
     return groups.map((key, value) =>
         MapEntry(key, DataFrame(columns: columns, data: value)));
+  }
+
+   static DataFrame fromJson(String jsonString) {
+    final data = jsonDecode(jsonString);
+    return DataFrame(columns: data['columns'], data: data['data']);
+  }
+
+  String toJson() {
+    return jsonEncode({'columns': columns, 'data': data});
   }
 }
