@@ -36,7 +36,8 @@ class DataFrame {
       throw ArgumentError("Column '$column' not found.");
     }
 
-    final filteredData = data.where((row) => condition(row[columnIndex])).toList();
+    final filteredData =
+        data.where((row) => condition(row[columnIndex])).toList();
     return DataFrame(columns: columns, data: filteredData);
   }
 
@@ -81,7 +82,9 @@ class DataFrame {
       throw ArgumentError("Column '$column' not found.");
     }
 
-    return data.map((row) => row[columnIndex] as num).reduce((a, b) => a < b ? a : b);
+    return data
+        .map((row) => row[columnIndex] as num)
+        .reduce((a, b) => a < b ? a : b);
   }
 
   dynamic max(String column) {
@@ -90,7 +93,9 @@ class DataFrame {
       throw ArgumentError("Column '$column' not found.");
     }
 
-    return data.map((row) => row[columnIndex] as num).reduce((a, b) => a > b ? a : b);
+    return data
+        .map((row) => row[columnIndex] as num)
+        .reduce((a, b) => a > b ? a : b);
   }
 
   Map<dynamic, DataFrame> groupBy(String column) {
@@ -105,6 +110,7 @@ class DataFrame {
       groups.putIfAbsent(key, () => []).add(row);
     }
 
-    return groups.map((key, value) => MapEntry(key, DataFrame(columns: columns, data: value)));
+    return groups.map((key, value) =>
+        MapEntry(key, DataFrame(columns: columns, data: value)));
   }
 }
