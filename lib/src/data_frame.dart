@@ -39,4 +39,21 @@ class DataFrame {
     final filteredData = data.where((row) => condition(row[columnIndex])).toList();
     return DataFrame(columns: columns, data: filteredData);
   }
+
+  DataFrame sort(String column, {bool ascending = true}) {
+    final columnIndex = columns.indexOf(column);
+    if (columnIndex == -1) {
+      throw ArgumentError("Column '$column' not found.");
+    }
+
+    final sortedData = List<List<dynamic>>.from(data)
+      ..sort((a, b) {
+        final aValue = a[columnIndex];
+        final bValue = b[columnIndex];
+        if (aValue == bValue) return 0;
+        return (aValue.compareTo(bValue) * (ascending ? 1 : -1));
+      });
+
+    return DataFrame(columns: columns, data: sortedData);
+  }
 }
