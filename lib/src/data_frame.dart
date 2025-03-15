@@ -8,5 +8,11 @@ class DataFrame {
     }
   }
 
-  
+  // Вывод DataFrame
+  void printDataFrame() {
+    print(columns.join(' | '));
+    for (var row in data) {
+      print(row.join(' | '));
+    }
+  }
 }
