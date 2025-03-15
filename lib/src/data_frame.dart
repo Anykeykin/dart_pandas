@@ -29,4 +29,14 @@ class DataFrame {
 
     return DataFrame(columns: columns, data: data);
   }
+
+  DataFrame filter(String column, bool Function(dynamic) condition) {
+    final columnIndex = columns.indexOf(column);
+    if (columnIndex == -1) {
+      throw ArgumentError("Column '$column' not found.");
+    }
+
+    final filteredData = data.where((row) => condition(row[columnIndex])).toList();
+    return DataFrame(columns: columns, data: filteredData);
+  }
 }
