@@ -92,4 +92,19 @@ class DataFrame {
 
     return data.map((row) => row[columnIndex] as num).reduce((a, b) => a > b ? a : b);
   }
+
+  Map<dynamic, DataFrame> groupBy(String column) {
+    final columnIndex = columns.indexOf(column);
+    if (columnIndex == -1) {
+      throw ArgumentError("Column '$column' not found.");
+    }
+
+    final groups = <dynamic, List<List<dynamic>>>{};
+    for (var row in data) {
+      final key = row[columnIndex];
+      groups.putIfAbsent(key, () => []).add(row);
+    }
+
+    return groups.map((key, value) => MapEntry(key, DataFrame(columns: columns, data: value)));
+  }
 }
