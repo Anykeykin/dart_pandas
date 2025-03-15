@@ -74,4 +74,13 @@ class DataFrame {
     final count = data.length;
     return count == 0 ? 0 : sum(column) / count;
   }
+
+  dynamic min(String column) {
+    final columnIndex = columns.indexOf(column);
+    if (columnIndex == -1) {
+      throw ArgumentError("Column '$column' not found.");
+    }
+
+    return data.map((row) => row[columnIndex] as num).reduce((a, b) => a < b ? a : b);
+  }
 }
