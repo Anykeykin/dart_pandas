@@ -139,4 +139,8 @@ class DataFrame {
     return DataFrame(columns: columns, data: filledData);
   }
 
+  DataFrame dropDuplicates() {
+    final uniqueData = data.toSet().toList();
+    return DataFrame(columns: columns, data: uniqueData);
+  }
 }
