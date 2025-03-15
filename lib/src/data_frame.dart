@@ -126,4 +126,10 @@ class DataFrame {
     final csv = const ListToCsvConverter().convert(data);
     File(filePath).writeAsStringSync(csv);
   }
+
+  DataFrame dropna() {
+    final cleanedData =
+        data.where((row) => !row.any((cell) => cell == null)).toList();
+    return DataFrame(columns: columns, data: cleanedData);
+  }
 }
