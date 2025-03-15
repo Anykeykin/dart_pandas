@@ -1,7 +1,7 @@
 name: dart_pandas
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: An analog of the pandas library in python
+version: 0.1.0
+repository: https://github.com/Anykeykin/dart_pandas
 
 environment:
   sdk: ^3.1.5
