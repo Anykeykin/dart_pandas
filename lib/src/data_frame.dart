@@ -56,4 +56,17 @@ class DataFrame {
 
     return DataFrame(columns: columns, data: sortedData);
   }
+
+  dynamic sum(String column) {
+    final columnIndex = columns.indexOf(column);
+    if (columnIndex == -1) {
+      throw ArgumentError("Column '$column' not found.");
+    }
+
+    num total = 0;
+    for (var row in data) {
+      total += row[columnIndex] as num;
+    }
+    return total;
+  }
 }
