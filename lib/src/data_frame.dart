@@ -12,7 +12,6 @@ class DataFrame {
     }
   }
 
-  // Вывод DataFrame
   void printDataFrame() {
     print(columns.join(' | '));
     for (var row in data) {
@@ -20,7 +19,6 @@ class DataFrame {
     }
   }
 
-  // Загрузка данных из CSV
   static DataFrame fromCsv(String filePath) {
     final file = File(filePath).readAsStringSync();
     final rows = const CsvToListConverter().convert(file);
