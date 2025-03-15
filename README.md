@@ -53,7 +53,7 @@ void main() {
 
 Filtering Data
 
-``dart
+```dart
 final filteredDf = df.filter((row) => row['age'] > 30);
 filteredDf.printDataFrame();
 ```
