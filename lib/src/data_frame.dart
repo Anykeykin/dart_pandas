@@ -132,4 +132,11 @@ class DataFrame {
         data.where((row) => !row.any((cell) => cell == null)).toList();
     return DataFrame(columns: columns, data: cleanedData);
   }
+
+  DataFrame fillna(dynamic value) {
+    final filledData =
+        data.map((row) => row.map((cell) => cell ?? value).toList()).toList();
+    return DataFrame(columns: columns, data: filledData);
+  }
+
 }
