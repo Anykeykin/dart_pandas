@@ -115,7 +115,7 @@ class DataFrame {
         MapEntry(key, DataFrame(columns: columns, data: value)));
   }
 
-   static DataFrame fromJson(String jsonString) {
+  static DataFrame fromJson(String jsonString) {
     final data = jsonDecode(jsonString);
     return DataFrame(columns: data['columns'], data: data['data']);
   }
