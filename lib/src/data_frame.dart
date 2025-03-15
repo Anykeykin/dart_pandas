@@ -123,4 +123,9 @@ class DataFrame {
   String toJson() {
     return jsonEncode({'columns': columns, 'data': data});
   }
+
+  void toCsv(String filePath) {
+    final csv = const ListToCsvConverter().convert(data);
+    File(filePath).writeAsStringSync(csv);
+  }
 }
