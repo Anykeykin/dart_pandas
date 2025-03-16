@@ -147,4 +147,8 @@ class DataFrame {
   List<List<dynamic>> head(int n) {
     return data.sublist(0, n);
   }
+
+  List<List<dynamic>> tail(int n) {
+    return data.sublist(data.length - n);
+  }
 }
