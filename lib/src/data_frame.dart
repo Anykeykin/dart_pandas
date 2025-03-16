@@ -217,4 +217,12 @@ class DataFrame {
       }
     }
   }
+
+  void addColumn(String column, List<dynamic> values) {
+    if (values.length != data.length) throw ArgumentError('Invalid length.');
+    columns.add(column);
+    for (var i = 0; i < data.length; i++) {
+      data[i].add(values[i]);
+    }
+  }
 }
