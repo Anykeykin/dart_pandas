@@ -225,4 +225,8 @@ class DataFrame {
       data[i].add(values[i]);
     }
   }
+
+  List<dynamic> iloc(int rowIndex) {
+    return data[rowIndex];
+  }
 }
