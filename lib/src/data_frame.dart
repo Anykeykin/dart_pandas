@@ -143,4 +143,8 @@ class DataFrame {
     final uniqueData = data.toSet().toList();
     return DataFrame(columns: columns, data: uniqueData);
   }
+
+  List<List<dynamic>> head(int n) {
+    return data.sublist(0, n);
+  }
 }
