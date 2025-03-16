@@ -169,4 +169,10 @@ class DataFrame {
       }
     }
   }
+
+  DataFrame concat(List<DataFrame> dataFrames) {
+    final columns = dataFrames.first.columns;
+    final data = dataFrames.expand((df) => df.data).toList();
+    return DataFrame(columns: columns, data: data);
+  }
 }
