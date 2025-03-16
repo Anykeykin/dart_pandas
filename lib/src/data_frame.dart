@@ -177,4 +177,24 @@ class DataFrame {
   }
 
   List<int> get shape => [data.length, columns.length];
+
+  void upper(String column) {
+    final index = columns.indexOf(column);
+    if (index == -1) throw ArgumentError('Column not found.');
+    for (var row in data) {
+      if (row[index] is String) {
+        row[index] = (row[index] as String).toUpperCase();
+      }
+    }
+  }
+
+  void lower(String column) {
+    final index = columns.indexOf(column);
+    if (index == -1) throw ArgumentError('Column not found.');
+    for (var row in data) {
+      if (row[index] is String) {
+        row[index] = (row[index] as String).toLowerCase();
+      }
+    }
+  }
 }
