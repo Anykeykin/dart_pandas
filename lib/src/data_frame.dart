@@ -207,4 +207,14 @@ class DataFrame {
       return (aValue.compareTo(bValue)) * (ascending ? 1 : -1);
     });
   }
+
+  void dropColumns(List<String> columnsToDrop) {
+    final indices = columnsToDrop.map((col) => columns.indexOf(col)).toList();
+    columns.removeWhere((col) => columnsToDrop.contains(col));
+    for (var row in data) {
+      for (var i in indices.reversed) {
+        row.removeAt(i);
+      }
+    }
+  }
 }
