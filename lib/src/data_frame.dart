@@ -175,4 +175,6 @@ class DataFrame {
     final data = dataFrames.expand((df) => df.data).toList();
     return DataFrame(columns: columns, data: data);
   }
+
+  List<int> get shape => [data.length, columns.length];
 }
