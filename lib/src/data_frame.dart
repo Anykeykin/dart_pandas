@@ -157,4 +157,16 @@ class DataFrame {
     print('Data types: ${data[0].map((value) => value.runtimeType)}');
     print('Number of rows: ${data.length}');
   }
+
+  void describe() {
+    for (var i = 0; i < columns.length; i++) {
+      if (data[0][i] is num) {
+        final values = data.map((row) => row[i] as num).toList();
+        print('Column: ${columns[i]}');
+        print('Mean: ${values.reduce((a, b) => a + b) / values.length}');
+        print('Min: ${values.reduce((a, b) => a < b ? a : b)}');
+        print('Max: ${values.reduce((a, b) => a > b ? a : b)}');
+      }
+    }
+  }
 }
