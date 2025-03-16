@@ -197,4 +197,14 @@ class DataFrame {
       }
     }
   }
+
+  void sortValues(String column, {bool ascending = true}) {
+    final index = columns.indexOf(column);
+    if (index == -1) throw ArgumentError('Column not found.');
+    data.sort((a, b) {
+      final aValue = a[index];
+      final bValue = b[index];
+      return (aValue.compareTo(bValue)) * (ascending ? 1 : -1);
+    });
+  }
 }
