@@ -151,4 +151,10 @@ class DataFrame {
   List<List<dynamic>> tail(int n) {
     return data.sublist(data.length - n);
   }
+
+  void info() {
+    print('Columns: $columns');
+    print('Data types: ${data[0].map((value) => value.runtimeType)}');
+    print('Number of rows: ${data.length}');
+  }
 }
