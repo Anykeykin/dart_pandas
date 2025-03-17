@@ -1,6 +1,6 @@
 name: dart_pandas
 description: An analog of the pandas library in python
-version: 0.1.2
+version: 0.2.2
 repository: https://github.com/Anykeykin/dart_pandas
 
 environment:

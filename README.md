@@ -22,7 +22,7 @@ Add `dart_pandas` to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  dart_pandas: ^0.1.2
+  dart_pandas: ^0.2.2
 ```
 
 Then run:
